@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
   private data: any = [];
 
   private activeCat: any = null;
+  private nextPos: string = null;
 
   private catergories: any = [
     {
@@ -193,13 +194,28 @@ export class AppComponent implements OnInit {
   }
 
   setCurrent(data) {
+    const defaultIndex = 2;
     this.current = data;
-    this.activeCat = this.catergories[2];
+
+    this.setCurrentCat(
+      { ...this.catergories[defaultIndex], index: defaultIndex },
+      defaultIndex
+    );
+    // this.activeCat = this.catergories[2];
     console.log(this.activeCat);
   }
 
-  setCurrentCat(data) {
-    this.activeCat = data;
+  setCurrentCat(data: any, fututeIndex: number) {
+    this.activeCat = { ...data, index: fututeIndex };
+    // const offset = fututeIndex - this.activeCat.index;
+
+    // console.log(offset);
+
+    // if (offset < -1) {
+    //   console.log("Animate right");
+    // } else {
+    //   console.log("Animate left");
+    // }
   }
 
   removeOverlay() {

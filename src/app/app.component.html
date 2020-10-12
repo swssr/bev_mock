@@ -31,10 +31,10 @@
       <div class="tab-wrapper">
         <div class="tab-head">
           <span
-            *ngFor="let cat of catergories"
+            *ngFor="let cat of catergories; let i = index;"
             class="tab"
             [ngClass]="{'tab--active': cat.title === activeCat.title}"
-            (click)="setCurrentCat(cat)"
+            (click)="setCurrentCat(cat, i)"
             >{{ cat.title }}</span
           >
         </div>
