@@ -23,7 +23,7 @@
     />
     <div class="content">
       <header class="header">
-        <h3>{{current.name}} Menu</h3>
+        <div class="menu__head">{{current.name}} Menu</div>
         <div (click)="removeOverlay()" class="btn btn--icon" role="button">
           CLOSE
         </div>
@@ -52,6 +52,8 @@
                 <span class="minor">{{ menu_item.size }}</span>
               </div>
             </li>
+            <div class="menu__item"></div>
+            <div class="menu__item"></div>
           </ul>
           <div class="shadow"></div>
         </div>

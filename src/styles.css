@@ -1,4 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: BebasNue;
+  src: url(https://res.cloudinary.com/tumi/raw/upload/v1602511181/fonts/bev/BebasNeue_Regular.otf);
+}
+@font-face {
+  font-family: AvenirNextCondensed;
+  src: url(https://res.cloudinary.com/tumi/raw/upload/v1602511175/fonts/bev/AvenirNextCondensed-Regular.ttf);
+}
+@font-face {
+  font-family: "AvenirNextCondensed Bold";
+  src: url(https://res.cloudinary.com/tumi/raw/upload/v1602511178/fonts/bev/AvenirNextCondensed-Bold.ttf);
+}
+@font-face {
+  font-family: "Arial";
+  src: url(https://res.cloudinary.com/tumi/raw/upload/v1602511182/fonts/bev/Arial.ttf);
+}
+@font-face {
+  font-family: "Avenir";
+  src: url(https://res.cloudinary.com/tumi/raw/upload/v1602511191/fonts/bev/Avenir.ttc);
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -9,7 +29,8 @@
 }
 html,
 body {
-  font-family: sans-serif;
+  font-family: Avenir;
+  font-size: 18px;
 }
 .nav {
   display: flex;
@@ -24,4 +45,6 @@ body {
 }
 .btn {
   cursor: pointer;
+  text-transform: uppercase;
+  font-style: 1.5em;
 }

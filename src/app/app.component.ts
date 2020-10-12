@@ -186,7 +186,8 @@ export class AppComponent implements OnInit {
   }
 
   getData(): void {
-    const url = "https://csb-7geii-awwwmjzbo.vercel.app/api";
+    const url = "https://csb-pkxw4-lisblciam.vercel.app/api";
+    // const url = "https://csb-pkxw4-lisblciam.vercel.app/api";
     this.http.get(url).subscribe((res: any) => {
       this.data = res;
       console.log(this.data);
