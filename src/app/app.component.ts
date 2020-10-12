@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
 
   private catergories: any = [
     {
-      title: "Starters",
+      title: "Starter",
       items: [
         {
           name: "Starter 1",
@@ -175,7 +175,7 @@ export class AppComponent implements OnInit {
           price: 300.0
         }
       ]
-    },
+    }
   ];
 
   constructor(private http: HttpClient) {}

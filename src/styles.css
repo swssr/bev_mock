@@ -22,3 +22,6 @@ body {
   padding: 2em;
   background-color: green;
 }
+.btn {
+  cursor: pointer;
+}
