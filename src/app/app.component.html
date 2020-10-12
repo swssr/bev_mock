@@ -1,0 +1,52 @@
+<div>
+  <h1 class="head">Restaurants</h1>
+  <div class="grid">
+    <figure
+      *ngFor="let restaurant of data"
+      (click)="setCurrent(restaurant)"
+      class="card"
+    >
+      <img src="" class="img" />
+      <figcaption>
+        <h3>{{ restaurant.name }}</h3>
+        <p>{{ restaurant.cuisine_type }}</p>
+      </figcaption>
+    </figure>
+  </div>
+</div>
+
+<div *ngIf="!!current" class="overlay overlay--details">
+  <img src="" alt="" class="img img--bg" />
+  <div class="content">
+    <header>
+      <h3>{{current.name}} Menu</h3>
+      <button (click)="removeOverlay()" class="btn btn--icon">CLOSE</button>
+    </header>
+    <div class="tab-wrapper">
+      <div class="tab-head">
+        <span
+          *ngFor="let cat of catergories"
+          class="tab"
+          [ngClass]="{'tab--active': cat.title === activeCat.title}"
+          (click)="setCurrentCat(cat)"
+          >{{ cat.title }}</span
+        >
+      </div>
+      <div class="tab__content">
+        <div class="shadow"></div>
+        <ul class="menu">
+          <li *ngFor="let menu_item of activeCat.items" class="menu__item">
+            <div class="item__label">
+              <span class="name">{{ menu_item.name }}</span
+              ><span class="price">{{ menu_item.price | currency: "R" }}</span>
+            </div>
+            <div>
+              <span class="minor">{{ menu_item.size }}</span>
+            </div>
+          </li>
+        </ul>
+        <div class="shadow"></div>
+      </div>
+    </div>
+  </div>
+</div>
