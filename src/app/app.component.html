@@ -54,6 +54,7 @@
     margin-top: auto;
   }
   .overlay {
+    --content-offset-top: 30vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -67,6 +68,10 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  .overlay__bg {
+    width: 100vw;
+    height: calc(var(--content-offset-top) + 4em);
   }
   .img--blur {
     filter: blur(1px) grayscale(1) brightness(120%);
@@ -82,7 +87,7 @@
     z-index: 2;
   }
   .content {
-    margin-top: 30vh;
+    margin-top: var(--content-offset-top);
     background-color: #fff;
     height: 100%;
     border-top-left-radius: 2rem;
@@ -138,7 +143,7 @@
     opacity: 1;
   }
   .tab::before {
-    --size: 16px;
+    --size: 14px;
     content: "";
     position: absolute;
     bottom: -1em;
@@ -266,7 +271,7 @@
     <img
       src="https://res.cloudinary.com/tumi/image/upload/v1602632352/fonts/bev/images/BD_BARON_FOOD_MENU_Back_Image_2_1000_x_20002_1.jpg"
       alt=""
-      class="img img--bg"
+      class="img img--bg overlay__bg"
     />
     <div class="content">
       <header class="header">
