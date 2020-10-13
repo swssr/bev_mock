@@ -227,4 +227,10 @@ export class AppComponent implements OnInit {
       this.setCurrent(null);
     }, delay);
   }
+
+  randomImg() {
+    return `https://i.picsum.photos/id/${Math.round(
+      Math.random() * 1000
+    )}/535/535.jpg`;
+  }
 }

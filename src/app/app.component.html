@@ -1,3 +1,247 @@
+<style>
+  /* GLOBAL STYLE */
+</style>
+
+<style>
+  /* PAGE STYLES */
+  .page {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+  }
+  main {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    padding: 1em;
+  }
+  /* .no-overflow {
+  overflow: hidden;
+  height: 100vh;
+} */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+  }
+  .head {
+    margin-top: 2em;
+    margin-bottom: 1em;
+    text-transform: uppercase;
+    font-family: Albra Regular;
+  }
+  .card {
+    --p: 1em;
+    position: relative;
+    min-height: 200px;
+    padding: var(--p);
+    cursor: pointer;
+  }
+  .card .img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: grid;
+    width: calc(100% - var(--p));
+    width: 100%;
+    height: calc(100% - var(--p));
+    height: 100%;
+  }
+  .card *:not(.img) {
+    z-index: 2;
+  }
+  .card figcaption {
+    margin-top: auto;
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    animation: fade 400ms ease-out forwards;
+    z-index: 10;
+  }
+  .img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .img--blur {
+    filter: blur(1px) grayscale(1) brightness(120%);
+  }
+  .img--bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+  }
+  .img--bg ~ * {
+    position: relative;
+    z-index: 2;
+  }
+  .content {
+    margin-top: 30vh;
+    background-color: #fff;
+    height: 100%;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+    padding: 1.5rem;
+    animation-delay: 200ms;
+    animation: fade-up 400ms ease-out forwards;
+  }
+  .overlay header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 3em;
+  }
+  .menu__head {
+    text-transform: uppercase;
+    font-size: 1.5em;
+    font-family: Albra Regular;
+    max-width: 20ch;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  /* TAB */
+  .tab-wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+  }
+  .tab-head {
+    width: calc(100% + 2em);
+    height: max-content;
+    padding: 1em 2em;
+    padding-bottom: 2em;
+    padding-right: 4em;
+    margin-left: -2em;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    overflow-x: scroll;
+  }
+  .tab {
+    position: relative;
+    margin-right: 1rem;
+    white-space: nowrap;
+    cursor: pointer;
+    /* opacity: 0.86; */
+    transition: 0.4s opacity;
+    box-sizing: content-box;
+  }
+  .tab--active {
+    opacity: 1;
+  }
+  .tab::before {
+    --size: 16px;
+    content: "";
+    position: absolute;
+    bottom: -1em;
+    left: calc(50% - var(--size) / 2);
+    width: var(--size);
+    height: var(--size);
+    transform: translateX(-50%);
+    background-color: transparent;
+    transform: scale(0);
+    transition: 0.4s;
+    border-radius: 50%;
+  }
+  .tab--active::before {
+    background-color: var(--color-accent);
+    transform: scale(1);
+  }
+  .tab__content {
+    position: relative;
+    width: 100%;
+    height: 68vh;
+    max-height: 68vh;
+    overflow: hidden;
+    margin-top: -1em;
+  }
+  .menu {
+    margin-top: -2em;
+    padding-top: 2em;
+    width: calc(100% + 2em);
+    height: 100%;
+    border: 2px solid;
+    margin-left: -2em;
+    padding: 1em;
+    padding-right: 0;
+    overflow-y: scroll;
+    box-sizing: content-box;
+  }
+
+  .menu__item {
+    display: grid;
+    background-color: #fff;
+    height: 4em;
+
+    padding: 1em;
+    padding-right: 1.5em;
+  }
+  .menu__item:first-of-type {
+    margin-top: 1.5em;
+  }
+  .shadow {
+    position: absolute;
+    width: 100%;
+    height: 2em;
+    background-image: linear-gradient(to bottom, #fff, transparent);
+    margin-top: -8px;
+  }
+  .shadow:first-of-type {
+    top: 0;
+  }
+  .shadow:last-of-type {
+    bottom: 0;
+    background-image: linear-gradient(to top, #fff, transparent);
+  }
+  .item__label {
+    display: flex;
+    justify-content: space-between;
+  }
+  .name {
+    color: var(--color-accent);
+    font-size: 1.1em;
+  }
+  .minor {
+    font-family: "Armasen Kelson Light";
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes fade-up {
+    from {
+      transform: translateY(2em);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fade-down {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(2em);
+      opacity: 0;
+    }
+  }
+</style>
 <div class="page">
   <main>
     <div class="head">Restaurants</div>
@@ -7,7 +251,10 @@
         (click)="setCurrent(restaurant)"
         class="card"
       >
-        <img src="" class="img" />
+        <img
+          src="https://media0.giphy.com/media/dAWZiSMbMvObDWP3aA/giphy.gif?cid=ecf05e47qefnqyrj2c2r32woutiajgqlkcxp0h74zhxn6o9l&rid=giphy.gif"
+          class="img img--bg img--blur"
+        />
         <figcaption>
           <h3>{{ restaurant.name }}</h3>
           <p>{{ restaurant.cuisine_type }}</p>
@@ -17,13 +264,14 @@
   </main>
   <div *ngIf="!!current" class="overlay overlay--details">
     <img
-      src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80"
+      src="https://res.cloudinary.com/tumi/image/upload/v1602632352/fonts/bev/images/BD_BARON_FOOD_MENU_Back_Image_2_1000_x_20002_1.jpg"
       alt=""
       class="img img--bg"
     />
     <div class="content">
       <header class="header">
-        <div class="menu__head">{{current.name}} Menu</div>
+        <div class="menu__head">Baron Menu</div>
+        <!-- <div class="menu__head">{{current.name}} Menu</div> -->
         <div (click)="removeOverlay()" class="btn btn--icon" role="button">
           CLOSE
         </div>
@@ -37,6 +285,9 @@
             (click)="setCurrentCat(cat, i)"
             >{{ cat.title }}</span
           >
+          <div class="tab"></div>
+          <div class="tab"></div>
+          <div class="tab"></div>
         </div>
         <div class="tab__content">
           <div class="shadow"></div>

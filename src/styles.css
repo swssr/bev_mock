@@ -1,5 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
+  font-family: "Albra Regular";
+  src: url(https://res.cloudinary.com/tumi/raw/upload/v1602630239/fonts/bev/FontsFree-Net-AlbraRegular.ttf);
+}
+@font-face {
+  font-family: "Armasen Kelson Light";
+  src: url(https://res.cloudinary.com/tumi/raw/upload/v1602630238/fonts/bev/Armasen_-_Kelson-Light.otf);
+}
+@font-face {
+  font-family: "Armasen Kelson";
+  src: url(https://res.cloudinary.com/tumi/raw/upload/v1602630238/fonts/bev/Armasen_-_Kelson.otf);
+}
+@font-face {
   font-family: BebasNue;
   src: url(https://res.cloudinary.com/tumi/raw/upload/v1602511181/fonts/bev/BebasNeue_Regular.otf);
 }
@@ -25,11 +37,11 @@
   padding: 0;
 }
 :root {
-  --color: red;
+  --color-accent: #f52e26;
 }
 html,
 body {
-  font-family: Avenir;
+  font-family: "Armasen Kelson";
   font-size: 18px;
 }
 .nav {
@@ -46,5 +58,5 @@ body {
 .btn {
   cursor: pointer;
   text-transform: uppercase;
-  font-style: 1.5em;
+  font-family: "Armasen Kelson";
 }
